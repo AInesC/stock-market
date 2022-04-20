@@ -1,6 +1,19 @@
+import { useState } from "react";
+
 export default function Create() {
+	const [formData, setFormData] = useState({
+		name: "",
+		code: "",
+		price: "",
+	});
+
 	function handleChange(event) {
-		console.log("handleChange", event.target.value);
+		const { name, value } = event.target;
+
+		setFormData((prevState) => ({
+			...prevState,
+			[name]: value,
+		}));
 	}
 
 	function handleSubmit(event) {
@@ -21,6 +34,7 @@ export default function Create() {
 							minLength="4"
 							maxLength="60"
 							onChange={handleChange}
+							value={formData.name}
 						/>
 					</label>
 				</div>
@@ -34,6 +48,7 @@ export default function Create() {
 							minLength="3"
 							maxLength="3"
 							onChange={handleChange}
+							value={formData.code}
 						/>
 					</label>
 				</div>
@@ -47,6 +62,7 @@ export default function Create() {
 							minLength="1"
 							maxLength="9999"
 							onChange={handleChange}
+							value={formData.price}
 						/>
 					</label>
 				</div>
