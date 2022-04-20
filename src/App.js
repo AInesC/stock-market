@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Create from "./components/Create";
+import Detail from "./components/Detail";
 
 function App() {
 	const [stocks, setStocks] = useState([]);
@@ -23,6 +24,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home stocks={stocks} />} />
 					<Route paht="/create" element={<Create />} />
+					<Route path="/detail/:code" element={<Detail />} />
 				</Routes>
 			</div>
 		</BrowserRouter>
